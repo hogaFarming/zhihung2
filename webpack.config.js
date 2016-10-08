@@ -28,7 +28,7 @@ module.exports = {
         loaders: ['awesome-typescript-loader', 'angular2-template-loader']
       },
 
-      { test: /\.css$/, loader: 'style!css' },
+      { test: /\.css$/, loader: 'to-string!css' },
 
       { test: /\.html$/, loader: 'html' },
 

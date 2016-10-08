@@ -1,1 +1,15 @@
-<div>entry content</div>
+<div class="entry-content">
+  <div *ngIf="banner">
+    <link rel="stylesheet" [href]="css">
+    <div class="banner">
+      <img [src]="banner.image | zhihuImage" alt={{banner.title}}>
+      <span class="title">{{banner.title}}</span>
+      <span class="source">{{banner.imageSource}}</span>
+    </div>
+    <div [innerHTML]="body | zhihuImage">
+    </div>
+  </div>
+  <div *ngIf="!banner">
+    loading...
+  </div>
+</div>

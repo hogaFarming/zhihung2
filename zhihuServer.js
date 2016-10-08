@@ -1,7 +1,7 @@
 var http = require('http');
 
 var PORT = 9001;
-var ZHIHU_ADDRESS = 'news-at.zhihu.com/';
+var ZHIHU_ADDRESS = 'news-at.zhihu.com';
 
 // 获取请求的headers，去掉host和connection
 var getHeader = function (req) {
@@ -14,28 +14,23 @@ var getHeader = function (req) {
   return ret;
 };
 
-var getPath = function (req) {
-  var url = req.url;
-  if (url.substr(0, 7).toLowerCase() === 'http://') {
-    var i = url.indexOf('/', 7);
-    if (i !== -1) {
-      url = url.substr(i);
-    }
-  }
-  return url;
-};
-
 function onRequest(req, res) {
-  debugger;
   var opt = {
     host: ZHIHU_ADDRESS,
-    path: req.url.slice(1),
-    method: req.mothod,
+    path: req.url,
+    method: req.method,
     headers: getHeader(req)
   };
 
+  if (/zhimg\.com/.test(req.url)) {
+    opt.host = req.url.split('/')[1];
+    opt.path = req.url.replace(/\/.*\.zhimg\.com/, '');
+    delete opt.headers;
+  }
+
   console.log('#\t%s http://%s%s', req.method, opt.host, opt.path);
   var zhihuReqest = http.request(opt, function(zhihuResponse) {
+    res.setHeader('Access-Control-Allow-Origin', '*');
     res.writeHead(zhihuResponse.statusCode, zhihuResponse.headers);
     zhihuResponse.pipe(res);
     zhihuResponse.on('end', function() {

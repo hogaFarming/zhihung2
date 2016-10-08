@@ -6,6 +6,7 @@
   "scripts": {
     "postinstall": "typings install",
     "start": "webpack-dev-server --inline --port=9000",
+    "server": "node zhihuServer.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -18,6 +19,7 @@
     "html-loader": "^0.4.4",
     "html-webpack-plugin": "^2.22.0",
     "style-loader": "^0.13.1",
+    "to-string-loader": "^1.1.5",
     "ts-loader": "^0.8.2",
     "typescript": "^2.0.3",
     "typings": "^1.4.0",

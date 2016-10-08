@@ -1,0 +1,32 @@
+.entries {
+
+}
+.entries ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.entries li {
+  box-sizing: border-box;
+  height: 100px;
+  margin: 6px 10px;
+  padding: 10px;
+  border: 1px solid #f0f0f0;
+  border-radius: 5px;
+  background: #fff;
+}
+.entries li a {
+  font-size: 16px;
+  color: #333;
+  text-decoration: none;
+}
+.entries li a:visited {
+  color: #666;
+}
+.entries li p {
+  margin-top: 10px;
+}
+.entries li img {
+  height: 80px;
+  float: right;
+}

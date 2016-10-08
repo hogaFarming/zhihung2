@@ -7,6 +7,8 @@ import {EntryService} from './service/entry.service';
 import {AppComponent} from "./app.component";
 import {EntryListComponent} from './entry-list/entry-list.component';
 import {EntryContentComponent} from './entry-content/entry-content.component';
+import {ZhihuImagePipe} from './pipe/zhihu-image.pipe';
+import {TopbarComponent} from './topbar/topbar.component';
 
 @NgModule({
   imports: [
@@ -17,7 +19,9 @@ import {EntryContentComponent} from './entry-content/entry-content.component';
   declarations: [
     AppComponent,
     EntryListComponent,
-    EntryContentComponent
+    EntryContentComponent,
+    ZhihuImagePipe,
+    TopbarComponent
   ],
   providers: [
     EntryService

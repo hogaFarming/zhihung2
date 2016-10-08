@@ -1,0 +1,28 @@
+.entry-content .banner {
+  height: 200px;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+.entry-content .banner img {
+  width: 100%;
+  /* margin-top: 50%; */
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.entry-content .banner .title {
+  position: absolute;
+  color: #eee;
+  font-size: 18px;
+  padding: 0 15px;
+  bottom: 25px;
+}
+.entry-content .banner .source {
+  position: absolute;
+  color: #bbb;
+  bottom: 10px;
+  right: 20px;
+  font-size: 12px;
+}

@@ -2,20 +2,15 @@ import {Component, OnInit} from '@angular/core';
 
 import {Router} from "@angular/router";
 import {EntryService} from "../service/entry.service";
-
-class Entry {
-  id: Number;
-  title: String;
-}
+import {Entry} from '../model/entry';
 
 @Component({
-  templateUrl: './entry-list.component.html'
+  templateUrl: './entry-list.component.html',
+  styleUrls: ['./entry-list.component.css']
 })
 export class EntryListComponent implements OnInit{
-  entries: Entry[] = [
-    { id: 1, title: 'Getting Started with Webpack: Module Bundling Magic' },
-    { id: 2, title: 'Learning Typescript' }
-  ];
+  title = '今日新闻';
+  entries: Entry[];
 
   constructor(
     private router: Router,
@@ -25,8 +20,9 @@ export class EntryListComponent implements OnInit{
 
   ngOnInit(): void {
     this.entryService.getLatest()
-      .then(list => {
-        console.log(list)
+      .then((list: Entry[]) => {
+        console.log(list);
+        this.entries = list;
       })
   }
 
